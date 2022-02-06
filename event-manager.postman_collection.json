@@ -1,0 +1,1486 @@
+{
+	"info": {
+		"_postman_id": "0aa82403-ba96-449a-878d-578dc9a3c99a",
+		"name": "event-manager",
+		"description": "All the API request related to event-manager application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Speaker",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc5YzgwOWRkMTE4NmNjMjI4YzRiYWY5MzU4NTk5NTMwY2U5MmI0YzgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI2ODA4MzQ3MDY0MjAtNTJwOGRkam80aHRsZWxoYzI2cDRqZnVocGgwdHJrNjcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI2ODA4MzQ3MDY0MjAtNTJwOGRkam80aHRsZWxoYzI2cDRqZnVocGgwdHJrNjcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDMxMjM1Nzg2NDM2NzYzODg3OTEiLCJhdF9oYXNoIjoiZy1BQXM2bzR5QnMydlllalZ6OFEyUSIsImlhdCI6MTU4MjkwNTIwOSwiZXhwIjoxNTgyOTA4ODA5fQ.OiZslpU6x8-CE6F1Cj9_yTuc1taiznvy9MVLIwZUJRiPVACwHYpx_IYEGdKW0Eet_nwBSXpRwyl4sdgAzQ5HNv50Ticu3ERv8PqhM6bclx7VGKbtxt3WtRWXL0ivudY2N9Qz-V-0wHVZJrtkazC2sBeSwd_pacnlVtdYOMose-xpnXyxhEtajNw1HDaRt1t3nU-DbZ4na3jUI0CPmRolvwS0Z4QLbiS_xEzu7bqHlbtPb7pq6BRvw1K434aqFIyhn3rVa3tyCW-wsForUftFvDkr73i7i24GWesjIZNpKM0LIZPRgoiUV7wPaQiuS7FI2NfeiAcOVzsL6ccq4WYd7w",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"idToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm92aWRlciI6IkdPT0dMRSIsImlkIjozLCJpYXQiOjE2MDk1NjczODB9.1Pfo2rS15iat0B_A1niv2MKawFw6sgWAmc0qOL73Was\",\n\t\"provider\": \"GOOGLE\",\n\t\"name\": \"Brijesh Bumrela 2\",\n\t\"phone\": \"8668916913\",\n\t\"email\": \"brijeshbumrela@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/auth/login/",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{jwt_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"idToken\":\"eyJhbGciOiJSUzI1NiIsImtpZCI6ImUyMDI4MmY0NDE1NjdjNWVjYjYwNjQ4ODc2ODU3ZjdiOGM1MWM0M2EiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiOTg3NDQyNTc5Njc3LTQ5b2w0YWc3aDNkMzk0NXM3MTllcWU1NmRtdWg0ajEwLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiOTg3NDQyNTc5Njc3LTQ5b2w0YWc3aDNkMzk0NXM3MTllcWU1NmRtdWg0ajEwLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTIzNTc4NjQzNjc2Mzg4NzkxIiwiZW1haWwiOiJicmlqZXNoYnVtcmVsYUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImJjYlJXOWlIRHgzMXpFOVMzeEdnN3ciLCJpYXQiOjE1OTMwMjcyMzQsImV4cCI6MTU5MzAzMDgzNH0.SNimDVMHcU4r6f-ibUc5_H0INNNibX9EiN2HIrCiL9ZttrYoM9EOZYj7JBcXEKN5zBrmrT8Eg9xnTKYH5ovJlMSEZjNYJ332jyXH1KHjRAYr7AsihIgbTLD4gOBtsAfPxFHWzTITJ_csl1Jms83lAVZkhZLOS5NfZAZrFbbdIKwK0qpWLCEanmEDw1DwIjc35L69M82qpXynE4Iwu2mn0dtx2Ok1tzZHwtvnp0AbADIdZmjwDt7unliqV4PKF7nwYG9EtdyM4pElvZul45lhJXmoFLTU5mA0xpqe4k7pNbrs_QmjXAYyQvA4qIzknc_rPdfikqZ61seVB3K2tXSX3g\",\n\t\"provider\": \"GOOGLE\",\n\t\"name\": \"Brijesh Bumrela 1\",\n\t\"phone\": \"8668338111\",\n\t\"email\": \"blbumrela98@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/auth/all",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "Moderator",
+					"item": [
+						{
+							"name": "set Event ( mods only )",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 21,\n\t\"status\": \"DECLINED\"\n}\n"
+								},
+								"url": {
+									"raw": "{{host_name}}/api/events/moderator",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"events",
+										"moderator"
+									]
+								},
+								"description": "Approve/Disapprove Event\n\nid: number\nstatus: enum -> APPROVED | DECLINED | PENDING"
+							},
+							"response": []
+						},
+						{
+							"name": "Get all events mod",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{jwt_token_mod}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/events/mod/all",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"events",
+										"mod",
+										"all"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Sheet",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "sheet",
+											"type": "file",
+											"src": "/home/brijesh/Desktop/sheet/sheet.xlsx"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host_name}}/api/events/upload/",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"events",
+										"upload",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bookmark",
+					"item": [
+						{
+							"name": "Get Bookmarks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{jwt_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host_name}}/api/events/bookmark",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"events",
+										"bookmark"
+									]
+								},
+								"description": "login required\nid: number (event id)"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Bookmark",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{host_name}}/api/events/bookmark/:id",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"events",
+										"bookmark",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "39"
+										}
+									]
+								},
+								"description": "login required\nid: number (event id)"
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Bookmarks",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{jwt_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host_name}}/api/events/bookmark/:id",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"events",
+										"bookmark",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "string"
+										}
+									]
+								},
+								"description": "login required\nid: number (event id)"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Event",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"event_date\", new Date());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}} ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ergonomic Fresh Shoes\",\n    \"street\": \"091 Willms Via\",\n    \"state\": \"Louisiana\",\n    \"country\": \"United States of America\",\n    \"start_time\": \"2020-06-07T02:32:39.292Z\",\n    \"end_time\": \"2021-09-01T04:49:42.144Z\",\n    \"email\": \"Colt36@hotmail.com\",\n    \"about\": \"Corrupti officia doloremque rerum harum. Ad sit accusantium distinctio aut similique et rerum unde.\",\n    \"city\": \"Justinetown\",\n    \"postalCode\": \"56525\",\n    \"website\": \"florine.net\",\n    \"description\": \"Praesentium omnis et dolore omnis dolores. Tempora non ut rem. Aut et beatae quisquam. Non eius nobis et eum porro qui facilis possimus ab.\",\n    \"categories\": [\n        \"et\",\n        \"minus\",\n        \"dolorum\",\n        \"ipsa\",\n        \"nesciunt\",\n        \"sed\",\n        \"non\",\n        \"distinctio\",\n        \"debitis\",\n        \"aut\",\n        \"incidunt\",\n        \"reiciendis\",\n        \"qui\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_name}}/api/events",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Multiple Event",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"event_date\", new Date());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token_mod}} "
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"events\": [\n        {\n            \"name\": \"Practical Cotton Pizza\",\n            \"street\": \"3822 Reilly Crescent\",\n            \"state\": \"Pennsylvania\",\n            \"country\": \"Vietnam\",\n            \"start_time\": \"2021-03-25T18:17:10.090Z\",\n            \"end_time\": \"2021-12-06T21:53:13.407Z\",\n            \"email\": \"Litzy.Reichel82@yahoo.com\",\n            \"about\": \"Sit aliquam et. Nisi sed et aliquid quia. Ipsa omnis cupiditate dolore cumque aut non quas. Occaecati sequi voluptates similique fugit assumenda.\",\n            \"city\": \"West Oleta\",\n            \"postalCode\": \"08382\",\n            \"phone\": \"309-214-9391 x588\",\n            \"latitude\": -59.2515,\n            \"longitude\": -148.4959,\n            \"categories\": [\n                \"omnis\"\n            ]\n        },\n        {\n            \"name\": \"Handmade Wooden Pants\",\n            \"street\": \"8032 Sylvan Gardens\",\n            \"state\": \"Idaho\",\n            \"country\": \"Ghana\",\n            \"start_time\": \"2020-09-17T15:39:09.647Z\",\n            \"end_time\": \"2021-10-12T13:07:30.607Z\",\n            \"email\": \"Cleveland.Shields@gmail.com\",\n            \"about\": \"Maiores quo dolores. Sit optio ratione totam aliquam sed eligendi.\",\n            \"city\": \"New Eldridge\",\n            \"postalCode\": \"02842-2955\",\n            \"website\": \"jacynthe.biz\",\n            \"phone\": \"759.559.1474\",\n            \"description\": \"Est totam consequuntur nesciunt quaerat quibusdam et qui. Neque ut tenetur quia aliquid qui dignissimos autem. Aut qui minus suscipit quas. Voluptates atque doloremque cum debitis est in consequatur.\",\n            \"latitude\": 76.3146,\n            \"longitude\": 141.3329,\n            \"categories\": [\n                \"vitae\",\n                \"et\",\n                \"sapiente\",\n                \"aut\",\n                \"sit\"\n            ]\n        },\n        {\n            \"name\": \"Gorgeous Rubber Soap\",\n            \"street\": \"869 Kim Isle\",\n            \"state\": \"Kentucky\",\n            \"country\": \"Ireland\",\n            \"start_time\": \"2020-06-06T00:38:38.777Z\",\n            \"end_time\": \"2021-07-14T17:42:50.218Z\",\n            \"email\": \"Richie89@yahoo.com\",\n            \"about\": \"Minus provident impedit doloribus optio dolores libero non. Est nulla eos qui.\",\n            \"city\": \"South Olen\",\n            \"postalCode\": \"16232\",\n            \"website\": \"viola.net\",\n            \"phone\": \"1-867-604-4238 x2281\",\n            \"latitude\": -54.1845,\n            \"longitude\": -72.7035,\n            \"categories\": [\n                \"commodi\",\n                \"non\",\n                \"ullam\",\n                \"nam\"\n            ]\n        },\n        {\n            \"name\": \"Intelligent Wooden Computer\",\n            \"street\": \"1047 Lucile Brook\",\n            \"state\": \"Vermont\",\n            \"country\": \"Taiwan\",\n            \"start_time\": \"2020-12-08T02:03:59.350Z\",\n            \"end_time\": \"2022-03-29T03:42:48.739Z\",\n            \"email\": \"Elisabeth.Bernhard39@hotmail.com\",\n            \"about\": \"Ut iusto rerum ea aut. Ex consequuntur amet officia reprehenderit officiis omnis rerum vitae.\",\n            \"city\": \"Auburn\",\n            \"postalCode\": \"40787-5599\",\n            \"website\": \"amiya.biz\",\n            \"phone\": \"796-578-6132 x0553\",\n            \"latitude\": 41.477,\n            \"longitude\": 170.2006,\n            \"categories\": [\n                \"ab\",\n                \"aut\",\n                \"doloremque\",\n                \"et\",\n                \"temporibus\"\n            ]\n        },\n        {\n            \"name\": \"Intelligent Wooden Car\",\n            \"street\": \"913 Mitchell Squares\",\n            \"state\": \"Texas\",\n            \"country\": \"Kyrgyz Republic\",\n            \"start_time\": \"2020-10-18T13:03:06.052Z\",\n            \"end_time\": \"2022-04-24T21:27:38.806Z\",\n            \"email\": \"Stewart.Hegmann@yahoo.com\",\n            \"about\": \"Quasi hic iusto vel et sunt ratione porro voluptas. Vero voluptatem sint doloremque quod dolorum quia sint molestiae. Eos ea doloribus deleniti dolore fuga perspiciatis qui maxime ex. Aut veniam et. Neque id adipisci dolorum.\",\n            \"city\": \"New Sammiechester\",\n            \"postalCode\": \"88912-7224\",\n            \"website\": \"lloyd.name\",\n            \"latitude\": -67.9623,\n            \"longitude\": 78.811,\n            \"categories\": [\n                \"ratione\",\n                \"voluptas\",\n                \"vel\",\n                \"nihil\",\n                \"deleniti\",\n                \"quod\",\n                \"quia\",\n                \"eius\",\n                \"tempora\",\n                \"quae\",\n                \"debitis\",\n                \"quas\",\n                \"harum\"\n            ]\n        },\n        {\n            \"name\": \"Ergonomic Cotton Sausages\",\n            \"street\": \"438 Jeffrey Junctions\",\n            \"state\": \"Louisiana\",\n            \"country\": \"South Africa\",\n            \"start_time\": \"2021-02-19T10:54:26.388Z\",\n            \"end_time\": \"2021-05-09T01:24:23.104Z\",\n            \"email\": \"Terrill99@yahoo.com\",\n            \"about\": \"Repudiandae qui possimus eveniet quia omnis quasi ut id. Ut aut aut iste soluta ut labore non aut. Ratione unde blanditiis. Numquam consequatur illo mollitia et id odit voluptatem. Facilis rerum qui rem non rerum dolor sapiente fugiat. Ut voluptatem voluptatum ipsum numquam.\",\n            \"city\": \"Hermanton\",\n            \"postalCode\": \"92320-1492\",\n            \"website\": \"liana.name\",\n            \"phone\": \"1-732-860-0612 x998\",\n            \"latitude\": -69.4531,\n            \"longitude\": -157.2852,\n            \"categories\": [\n                \"nulla\"\n            ]\n        },\n        {\n            \"name\": \"Practical Concrete Keyboard\",\n            \"street\": \"230 Romaine Cape\",\n            \"state\": \"New Hampshire\",\n            \"country\": \"Bahamas\",\n            \"start_time\": \"2020-12-27T16:10:10.535Z\",\n            \"end_time\": \"2021-07-11T23:28:33.597Z\",\n            \"email\": \"Alva50@gmail.com\",\n            \"about\": \"Quis rerum id sit et quae ut. Minima consequatur aut reprehenderit blanditiis autem.\",\n            \"city\": \"Lake Billieside\",\n            \"postalCode\": \"93629-6833\",\n            \"website\": \"jimmy.net\",\n            \"phone\": \"629.984.6025\",\n            \"latitude\": -88.9739,\n            \"longitude\": 76.5652,\n            \"categories\": []\n        },\n        {\n            \"name\": \"Incredible Rubber Hat\",\n            \"street\": \"017 Hudson Club\",\n            \"state\": \"Vermont\",\n            \"country\": \"Wallis and Futuna\",\n            \"start_time\": \"2021-01-03T12:28:07.319Z\",\n            \"end_time\": \"2022-01-16T07:01:41.357Z\",\n            \"email\": \"Jackie.Purdy@gmail.com\",\n            \"about\": \"Eaque corporis aut dignissimos corrupti quia. Beatae veniam qui eveniet porro. Deleniti ratione debitis in quo. Tempora quod voluptates ut doloribus eos omnis exercitationem dicta et. Sed quos ea voluptatum autem et vel ut laudantium. In iure error officia corporis mollitia esse.\",\n            \"city\": \"New Jasper\",\n            \"postalCode\": \"92344\",\n            \"website\": \"lue.net\",\n            \"phone\": \"(492) 766-7135 x0746\",\n            \"description\": \"Libero tempora suscipit perferendis ullam eos sit eos cum minus. Tempore aliquid repellat eveniet consequatur aut ut iusto. Cumque ipsum possimus perspiciatis quia enim. Officiis et rerum eos exercitationem accusamus beatae. Repudiandae dolor qui et itaque ipsum qui. Officia voluptatum natus omnis dolor ab.\",\n            \"latitude\": 42.5917,\n            \"longitude\": 75.9723,\n            \"categories\": [\n                \"doloribus\",\n                \"sit\",\n                \"omnis\",\n                \"placeat\",\n                \"vel\",\n                \"inventore\",\n                \"odit\",\n                \"quidem\",\n                \"mollitia\",\n                \"eum\",\n                \"repudiandae\"\n            ]\n        },\n        {\n            \"name\": \"Tasty Metal Pants\",\n            \"street\": \"8848 Carter Underpass\",\n            \"state\": \"Texas\",\n            \"country\": \"Brunei Darussalam\",\n            \"start_time\": \"2021-02-21T01:09:29.241Z\",\n            \"end_time\": \"2021-10-08T13:38:10.623Z\",\n            \"email\": \"Guiseppe21@hotmail.com\",\n            \"about\": \"Aliquid eius consequatur delectus excepturi aut et aliquam. Sed qui ad repudiandae inventore voluptatem repellat autem amet ea.\",\n            \"city\": \"New Thelma\",\n            \"postalCode\": \"82030\",\n            \"website\": \"angie.net\",\n            \"phone\": \"845.464.6978\",\n            \"latitude\": -27.0035,\n            \"longitude\": 157.0154,\n            \"categories\": [\n                \"rerum\",\n                \"quaerat\",\n                \"laudantium\",\n                \"et\"\n            ]\n        },\n        {\n            \"name\": \"Fantastic Soft Gloves\",\n            \"street\": \"156 Maribel Village\",\n            \"state\": \"Nebraska\",\n            \"country\": \"Bangladesh\",\n            \"start_time\": \"2020-06-03T14:06:51.088Z\",\n            \"end_time\": \"2022-01-15T22:22:37.020Z\",\n            \"email\": \"Lloyd_Roberts@gmail.com\",\n            \"about\": \"Veritatis qui rerum quod. Sit at est nihil. Omnis est quo ut sed unde minima id. Corrupti quidem incidunt amet. Accusamus necessitatibus sed. Culpa suscipit ullam consectetur molestiae explicabo vero minus est.\",\n            \"city\": \"Larkinside\",\n            \"postalCode\": \"59934\",\n            \"description\": \"Et sint consequatur. Aut voluptas beatae voluptates est. Ad quia atque magnam tempore sit expedita assumenda. Sed at optio quia voluptas molestias.\",\n            \"categories\": [\n                \"dolorum\"\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_name}}/api/events/many",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"many"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Event",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}} ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/events/1",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Event",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/events/:id",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "39",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all events",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_name}}/api/events/all",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"all"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2020-02-18T03:52:00.635Z",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2021-10-18T03:52:00.635Z",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get my events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/events",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload images",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host_name}}/api/events/upload/1",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"upload",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create a category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token_mod}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"maiores\",\n    \"logo\": \"http://placeimg.com/640/480/technics\"\n}"
+						},
+						"url": {
+							"raw": "{{host_name}}/api/events/category",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host_name}}/api/events/category",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all categories ( Mods Only )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token_mod}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/events/category",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(NOT USED) Approve a category ( Mods Only )",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token_mod}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/events/category/approve/:id",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"category",
+								"approve",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(NOT USED) Decline a category ( Mods Only )",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token_mod}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/events/category/decline/:id",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"category",
+								"decline",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "Coupons",
+					"item": [
+						{
+							"name": "Get coupons ( mod only )",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host_name}}/api/subscription/coupon",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"coupon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post coupon ( mod only )",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"JAN2021\",\n\t\"end_date\": \"2021-12-24T05:03:30.000Z\",\n\t\"price\": 2000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/subscription/coupon",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"coupon"
+									]
+								},
+								"description": "@Body\ncode: String(6, 20): required\nstart_date: ISOString: required\nend_date: ISOString\ncount: positiveIntNumber\nprice: positiveNumber\npercentage: Number(0, 100)\n\none of end_date | count: required\none of price | percentage: required"
+							},
+							"response": []
+						},
+						{
+							"name": "Toggle Coupon Visibility ( mod only )",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host_name}}/api/subscription/coupon/toggle/:id",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"coupon",
+										"toggle",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "string"
+										}
+									]
+								},
+								"description": "Manually disable/enable a coupon"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Coupon ( mod only )",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"JAN2021-updated\",\n\t\"end_date\": \"2021-12-20T05:03:30.000Z\",\n\t\"count\": 200,\n\t\"price\": 2100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/subscription/coupon/:id",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"coupon",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "string"
+										}
+									]
+								},
+								"description": "@Param\nid: number: required\n\n@Body\ncode: String(6, 20): required\nstart_date: ISOString: required\nend_date: ISOString\ncount: positiveIntNumber\nprice: positiveNumber\npercentage: Number(0, 100)\n\none of end_date | count: required\none of price | percentage: required"
+							},
+							"response": []
+						},
+						{
+							"name": "Get single coupon ( mod only )",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host_name}}/api/subscription/coupon/:id",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"coupon",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set coupon to plan (  mod only )",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"coupon\": {\n        \"code\": \"SEPT2020\",\n        \"end_date\": \"2020-09-01T18:30:00.000Z\",\n        \"count\": 200,\n        \"percentage\": 10,\n        \"name\": \"Diwali sale\"\n    },\n    \"plans\": [2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/subscription/setcoupon",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"setcoupon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update coupon to plan (  mod only ) Copy",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{jwt_token_mod}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"plans\": [2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/subscription/setcoupon/1",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"setcoupon",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get updated price for coupon",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{jwt_token_mod}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"plans\": [2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host_name}}/api/subscription/price?plan=2&coupon_code=AUG2020",
+									"host": [
+										"{{host_name}}"
+									],
+									"path": [
+										"api",
+										"subscription",
+										"price"
+									],
+									"query": [
+										{
+											"key": "plan",
+											"value": "2"
+										},
+										{
+											"key": "coupon_code",
+											"value": "AUG2020"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get subscription plans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/subscription",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"subscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get detailed subscription plan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/subscription/:id",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Subscription Plan ( mod only )",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token_mod}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\": 3,\n\t\"price\": 10000,\n\t\"features\": [\"This is a golden feature 1\", \"This is a golden feature 2\"],\n\t\"name\": \"Golden\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_name}}/api/subscription",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"subscription"
+							]
+						},
+						"description": "Add a subscription plan\nduration (in months): number: required;\nprice: number: required;\ndisable: boolean: optional (default: false)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update subscription plans ( mod only )",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\": 11,\n\t\"price\": 1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_name}}/api/subscription/:id",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Update a subscription plan\n@Param\nid: number\n\n@Body\nduration (in months): number: required;\nprice: number: required;\ndisable: boolean: optional (default: false)"
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Visibility ( mod only )",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/subscription/toggle/:id",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"toggle",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get updated price",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host_name}}/api/subscription/price?plan=1&coupon_code=1",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"subscription",
+								"price"
+							],
+							"query": [
+								{
+									"key": "plan",
+									"value": "1"
+								},
+								{
+									"key": "coupon_code",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Start payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currency\": \"IN\",\n    \"amount\": \"12000\"\n}"
+						},
+						"url": {
+							"raw": "{{host_name}}/api/payment",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"razorpay_order_id\": \"some-rzp-string\",\n    \"subscription_info\": {\n        \"subscription_plan_id\": 2,\n        \"coupon_id\": 1\n    }\n}"
+						},
+						"url": {
+							"raw": "{{host_name}}/api/payment",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify payment Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"razorpay_payment_id\": \"some_id\",\n    \"razorpay_order_id\": \"some_id\",\n    \"razorpay_signature\": \"string\",\n    \"amount\": \"12000\",\n    \"currency\": \"IN\",\n    \"couponId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{host_name}}/api/payment/addpaymentdetails",
+							"host": [
+								"{{host_name}}"
+							],
+							"path": [
+								"api",
+								"payment",
+								"addpaymentdetails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
